@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <title>Soma Estratégias | Proposta Comercial</title>
+  <meta name="description" content="Proposta Comercial — Programa de Crescimento Comercial da Soma Estratégias" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050505;
+      --bg-soft:#0a0906;
+      --panel:rgba(18,16,10,.72);
+      --panel-2:rgba(255,255,255,.045);
+      --text:#f8f6ef;
+      --muted:#c8c4b8;
+      --gold:#f2be2f;
+      --gold-2:#ffe47a;
+      --gold-3:#a96e09;
+      --gold-soft:rgba(242,190,47,.15);
+      --line:rgba(242,190,47,.45);
+      --radius:22px;
+      --shadow:0 22px 80px rgba(0,0,0,.45);
+      --ease:cubic-bezier(.2,.75,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      background:
+        radial-gradient(circle at 0% 95%, rgba(228,165,34,.20), transparent 26%),
+        radial-gradient(circle at 100% 0%, rgba(202,137,26,.20), transparent 26%),
+        linear-gradient(180deg,#040404 0%,#060605 100%);
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      opacity:.18;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image:linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+    }
+
+    a{color:inherit}
+    button{font:inherit}
+
+    .deck{
+      width:100%;
+    }
+
+    .slide{
+      min-height:100svh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      padding:44px clamp(24px,5vw,86px);
+      isolation:isolate;
+    }
+
+    .slide::before,
+    .slide::after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border:2px solid rgba(255,202,60,.6);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:-1;
+      filter:drop-shadow(0 0 10px rgba(255,191,34,.30));
+    }
+
+    .slide::before{
+      left:-380px;
+      top:-390px;
+    }
+
+    .slide::after{
+      right:-290px;
+      bottom:-420px;
+    }
+
+    .slide-glow{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 3% 92%, rgba(244,175,38,.18), transparent 26%),
+        radial-gradient(circle at 97% 4%, rgba(244,175,38,.16), transparent 23%);
+    }
+
+    .container{
+      width:min(1480px,100%);
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-family:"Montserrat",sans-serif;
+      font-size:clamp(.72rem,.8vw,.95rem);
+      letter-spacing:.33em;
+      text-transform:uppercase;
+      color:#ece9df;
+      margin-bottom:26px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:68px;
+      height:2px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-2));
+      box-shadow:0 0 14px rgba(250,194,40,.55);
+    }
+
+    .headline{
+      margin:0;
+      font-family:"Montserrat",sans-serif;
+      font-weight:900;
+      font-size:clamp(3.25rem,7vw,7.75rem);
+      line-height:.86;
+      letter-spacing:-.07em;
+      text-transform:uppercase;
+    }
+
+    .headline .gold-text,
+    .gold-text{
+      background:linear-gradient(180deg,#fff1a7 0%,#ffd562 22%,#e4a51d 56%,#ffe56d 77%,#a86f10 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter:drop-shadow(0 3px 10px rgba(230,166,31,.18));
+    }
+
+    .subheadline{
+      margin:.35em 0 0;
+      font-family:"Montserrat",sans-serif;
+      font-size:clamp(2rem,4vw,4.5rem);
+      line-height:.98;
+      font-weight:500;
+      letter-spacing:-.045em;
+      color:#f6d66c;
+    }
+
+    .lead{
+      max-width:980px;
+      margin:18px 0 0;
+      color:#e7e3da;
+      font-size:clamp(1rem,1.55vw,1.55rem);
+      line-height:1.28;
+      font-weight:300;
+    }
+
+    .cover .container{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      align-content:center;
+    }
+
+    .cover .headline{
+      font-size:clamp(4.2rem,10vw,10rem);
+      max-width:1100px;
+      line-height:.77;
+    }
+
+    .cover .subheadline{
+      font-size:clamp(2rem,4.7vw,4.8rem);
+      margin-top:24px;
+    }
+
+    .cover .descriptor{
+      margin-top:30px;
+      font-size:clamp(1rem,1.6vw,1.55rem);
+      color:#f0eee7;
+      letter-spacing:-.02em;
+    }
+
+    .cover .descriptor span{
+      color:var(--gold);
+      padding:0 .5em;
+    }
+
+    .cover-actions{
+      margin-top:42px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid var(--gold);
+      background:rgba(255,255,255,.03);
+      color:#fff7dd;
+      padding:13px 18px;
+      border-radius:999px;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:.35s var(--ease);
+      backdrop-filter:blur(12px);
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 0 1px rgba(255,220,116,.25),0 14px 40px rgba(245,178,30,.16);
+      background:rgba(255,204,62,.08);
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,#f5c84a,#d89b16);
+      color:#141008;
+      font-weight:800;
+      border-color:transparent;
+    }
+
+    .brand{
+      position:absolute;
+      right:clamp(26px,5vw,82px);
+      bottom:36px;
+      text-align:right;
+      line-height:.8;
+      font-family:"Montserrat",sans-serif;
+    }
+
+    .brand strong{
+      display:block;
+      font-size:clamp(2rem,3vw,4rem);
+      letter-spacing:-.08em;
+    }
+
+    .brand span{
+      font-size:clamp(.8rem,1vw,1.1rem);
+      letter-spacing:.18em;
+      text-transform:lowercase;
+    }
+
+    .module-head{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:40px;
+      align-items:start;
+      margin-bottom:30px;
+    }
+
+    .module-title-wrap .headline{
+      font-size:clamp(3.5rem,7vw,7.2rem);
+    }
+
+    .module-title-wrap .subheadline{
+      font-size:clamp(2rem,3.5vw,4rem);
+    }
+
+    .module-side{
+      min-width:290px;
+      text-align:left;
+      padding-top:4px;
+    }
+
+    .progress-label{
+      font-family:"Montserrat",sans-serif;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      margin-bottom:18px;
+      color:#ddd9cf;
+    }
+
+    .module-steps{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:54px;
+    }
+
+    .step{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.22);
+      display:grid;
+      place-items:center;
+      font-size:1.65rem;
+      font-weight:800;
+      color:#5f5f5f;
+      transition:.35s var(--ease);
+    }
+
+    .step-line{
+      width:34px;
+      height:2px;
+      background:rgba(255,255,255,.28);
+    }
+
+    .step.active{
+      color:#fff3b5;
+      border-color:var(--gold);
+      box-shadow:0 0 30px rgba(246,185,35,.32);
+      background:radial-gradient(circle,rgba(255,203,59,.13),transparent 68%);
+    }
+
+    .side-words{
+      font-family:"Montserrat",sans-serif;
+      font-size:.85rem;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      line-height:1.75;
+      color:#ece8dd;
+    }
+
+    .side-words::after{
+      content:"";
+      display:block;
+      width:58px;
+      height:3px;
+      background:var(--gold);
+      margin-top:14px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .card{
+      position:relative;
+      min-height:420px;
+      padding:28px 30px 26px;
+      border:1px solid rgba(245,190,44,.88);
+      border-radius:18px;
+      background:
+        linear-gradient(180deg,rgba(26,22,12,.82),rgba(9,9,8,.72));
+      overflow:hidden;
+      transform-style:preserve-3d;
+      transition:
+        transform .35s var(--ease),
+        box-shadow .35s var(--ease),
+        border-color .35s var(--ease),
+        background .35s var(--ease),
+        filter .35s var(--ease);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.02);
+      isolation:isolate;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      z-index:-1;
+      background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,210,89,.16),transparent 42%);
+      opacity:0;
+      transition:opacity .25s ease;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.04) 48%,transparent 74%);
+      transform:translateX(-120%);
+      transition:transform .65s var(--ease);
+    }
+
+    .card:hover,
+    .card.active{
+      transform:translateY(-8px) scale(1.012);
+      border-color:#ffd75a;
+      box-shadow:
+        0 18px 55px rgba(0,0,0,.42),
+        0 0 28px rgba(245,183,26,.12),
+        inset 0 0 42px rgba(255,196,42,.04);
+      background:
+        linear-gradient(180deg,rgba(40,32,14,.88),rgba(11,10,8,.82));
+    }
+
+    .card:hover::before,
+    .card.active::before{opacity:1}
+    .card:hover::after,
+    .card.active::after{transform:translateX(120%)}
+
+    .cards:has(.card:hover) .card:not(:hover){
+      filter:brightness(.76) saturate(.78);
+    }
+
+    .card-number{
+      font-family:"Montserrat",sans-serif;
+      font-size:3.35rem;
+      line-height:1;
+      font-weight:300;
+      color:#f3cf6d;
+      margin-bottom:18px;
+    }
+
+    .card-number::after{
+      content:"";
+      display:block;
+      width:58px;
+      height:3px;
+      background:var(--gold);
+      margin-top:16px;
+      box-shadow:0 0 10px rgba(246,183,35,.38);
+    }
+
+    .card h3{
+      margin:0 0 18px;
+      font-size:clamp(1.35rem,1.6vw,1.78rem);
+      line-height:1.05;
+      letter-spacing:-.035em;
+      font-family:"Montserrat",sans-serif;
+    }
+
+    .card p{
+      margin:0;
+      font-size:clamp(.95rem,1.05vw,1.12rem);
+      line-height:1.45;
+      color:#e6e1d7;
+      font-weight:300;
+    }
+
+    .card-note{
+      margin-top:22px;
+      padding:14px 16px 14px 22px;
+      border-radius:12px;
+      background:rgba(255,255,255,.055);
+      position:relative;
+      color:#f1ede3;
+      font-size:.95rem;
+      line-height:1.35;
+    }
+
+    .card-note::before{
+      content:"";
+      position:absolute;
+      left:8px;
+      top:11px;
+      bottom:11px;
+      width:4px;
+      border-radius:8px;
+      background:linear-gradient(var(--gold-2),var(--gold));
+      box-shadow:0 0 12px rgba(255,213,76,.45);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--gold);
+      border-radius:999px;
+      font-size:.72rem;
+      letter-spacing:.19em;
+      text-transform:uppercase;
+      color:#ffe89a;
+      margin-left:10px;
+      vertical-align:middle;
+    }
+
+    .footer-strip{
+      margin-top:34px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      color:#dbd6ca;
+      font-family:"Montserrat",sans-serif;
+      font-size:.73rem;
+      text-transform:uppercase;
+      letter-spacing:.28em;
+    }
+
+    .footer-strip::after{
+      content:"";
+      flex:1;
+      height:2px;
+      background:linear-gradient(90deg,var(--gold),rgba(242,190,47,.55));
+      max-width:720px;
+    }
+
+    .investment .container{
+      padding-top:20px;
+      padding-bottom:20px;
+    }
+
+    .investment .headline{
+      font-size:clamp(3.1rem,6vw,6.4rem);
+    }
+
+    .investment .subheadline{
+      font-size:clamp(2rem,3.3vw,3.8rem);
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:14px;
+    }
+
+    .price-card{
+      position:relative;
+      padding:25px 28px 24px;
+      min-height:320px;
+      border:1px solid rgba(245,190,44,.88);
+      border-radius:18px;
+      background:linear-gradient(180deg,rgba(31,25,11,.78),rgba(7,7,6,.77));
+      transition:.35s var(--ease);
+      cursor:pointer;
+    }
+
+    .price-card:hover,
+    .price-card.selected{
+      transform:translateY(-5px);
+      border-color:#ffdd67;
+      box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 28px rgba(245,183,26,.10);
+    }
+
+    .price-card.selected{
+      background:linear-gradient(180deg,rgba(47,35,10,.84),rgba(10,9,6,.80));
+    }
+
+    .price-card .check{
+      position:absolute;
+      right:20px;
+      top:20px;
+      width:24px;
+      height:24px;
+      border:1px solid rgba(255,255,255,.28);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:.8rem;
+      color:#111;
+      background:transparent;
+      transition:.25s ease;
+    }
+
+    .price-card.selected .check{
+      background:var(--gold);
+      border-color:var(--gold);
+    }
+
+    .price-card h3{
+      margin:8px 0 4px;
+      font-family:"Montserrat",sans-serif;
+      font-size:1.45rem;
+    }
+
+    .small{
+      color:#d7d1c6;
+      font-size:.9rem;
+    }
+
+    .price{
+      margin:8px 0;
+      font-family:"Montserrat",sans-serif;
+      font-size:clamp(1.8rem,2.5vw,2.8rem);
+      font-weight:800;
+      color:#f6d86b;
+      line-height:1.05;
+    }
+
+    .discount{
+      margin-top:11px;
+      border:1px solid rgba(243,189,46,.43);
+      background:rgba(243,189,46,.10);
+      border-radius:7px;
+      padding:7px 10px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      color:#f6e8b7;
+    }
+
+    .discount strong{
+      color:#ffd84f;
+      font-size:1.25rem;
+    }
+
+    .summary{
+      margin-top:16px;
+      padding:18px 24px;
+      border:1px solid rgba(245,190,44,.88);
+      border-radius:18px;
+      background:linear-gradient(90deg,rgba(19,16,8,.92),rgba(34,26,9,.82));
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:20px;
+      align-items:center;
+    }
+
+    .summary-title{
+      font-family:"Montserrat",sans-serif;
+      font-size:clamp(1.15rem,1.4vw,1.45rem);
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .summary-total{
+      font-family:"Montserrat",sans-serif;
+      font-size:clamp(1.5rem,2.3vw,2.6rem);
+      color:#f4d667;
+    }
+
+    .summary-total strong{
+      color:#ffd34c;
+    }
+
+    .summary-economy{
+      color:#e8e1d2;
+      margin-top:4px;
+      font-size:.95rem;
+    }
+
+    .summary-economy strong{
+      color:#ffd653;
+    }
+
+    .summary-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .floating-ui{
+      position:fixed;
+      z-index:30;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(6,6,6,.64);
+      backdrop-filter:blur(14px);
+      box-shadow:0 15px 50px rgba(0,0,0,.35);
+    }
+
+    .nav-btn,.dot-btn,.fs-btn{
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      color:#fff;
+      background:transparent;
+    }
+
+    .nav-btn,.fs-btn{
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      transition:.25s ease;
+    }
+
+    .nav-btn:hover,.fs-btn:hover{
+      background:rgba(255,255,255,.08);
+      color:#ffe17a;
+    }
+
+    .dots{
+      display:flex;
+      gap:7px;
+      align-items:center;
+    }
+
+    .dot-btn{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      padding:0;
+      background:rgba(255,255,255,.28);
+      transition:.25s ease;
+    }
+
+    .dot-btn.active{
+      width:22px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-2));
+      box-shadow:0 0 12px rgba(242,190,47,.45);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .75s var(--ease),transform .75s var(--ease);
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    .reveal.delay-1{transition-delay:.08s}
+    .reveal.delay-2{transition-delay:.16s}
+    .reveal.delay-3{transition-delay:.24s}
+    .reveal.delay-4{transition-delay:.32s}
+
+    @media (min-width: 901px){
+      html,body{scroll-snap-type:y mandatory}
+      .slide{scroll-snap-align:start;scroll-snap-stop:always}
+    }
+
+    @media (max-width: 1120px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .card{min-height:360px}
+      .pricing-grid{grid-template-columns:1fr 1fr}
+      .pricing-grid .price-card:last-child{grid-column:1/-1}
+      .module-head{grid-template-columns:1fr}
+      .module-side{
+        display:flex;
+        align-items:center;
+        gap:28px;
+        min-width:0;
+      }
+      .module-steps{margin-bottom:0}
+      .side-words{display:none}
+    }
+
+    @media (max-width: 720px){
+      .slide{
+        padding:58px 18px 92px;
+        align-items:flex-start;
+      }
+
+      .cover{
+        align-items:center;
+      }
+
+      .cover .headline{
+        font-size:clamp(4rem,20vw,6.2rem);
+        line-height:.79;
+      }
+
+      .cover .subheadline{
+        font-size:clamp(1.9rem,8vw,3rem);
+      }
+
+      .cover .descriptor{
+        font-size:.95rem;
+        line-height:1.5;
+      }
+
+      .brand{
+        right:18px;
+        bottom:20px;
+        display:none;
+      }
+
+      .module-head{
+        gap:18px;
+      }
+
+      .module-title-wrap .headline{
+        font-size:clamp(3.4rem,16vw,5.2rem);
+      }
+
+      .module-title-wrap .subheadline{
+        font-size:clamp(1.8rem,8vw,2.7rem);
+      }
+
+      .lead{
+        font-size:1rem;
+      }
+
+      .module-side{
+        overflow-x:auto;
+        width:100%;
+        padding-bottom:4px;
+      }
+
+      .progress-label{display:none}
+      .module-steps{flex-shrink:0}
+      .step{width:54px;height:54px;font-size:1.2rem}
+      .step-line{width:22px}
+
+      .cards{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .card{
+        min-height:0;
+        padding:22px;
+      }
+
+      .card-number{
+        font-size:2.65rem;
+      }
+
+      .cards:has(.card:hover) .card:not(:hover){
+        filter:none;
+      }
+
+      .footer-strip{
+        font-size:.62rem;
+        letter-spacing:.2em;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      .pricing-grid{
+        grid-template-columns:1fr;
+      }
+
+      .pricing-grid .price-card:last-child{
+        grid-column:auto;
+      }
+
+      .price-card{min-height:0}
+      .summary{
+        grid-template-columns:1fr;
+      }
+
+      .summary-actions{
+        justify-content:flex-start;
+      }
+
+      .floating-ui{
+        bottom:10px;
+      }
+
+      .slide::before{
+        left:-430px;
+        top:-420px;
+      }
+      .slide::after{
+        right:-400px;
+        bottom:-430px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{
+        scroll-behavior:auto !important;
+        animation:none !important;
+        transition:none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="deck" id="deck">
+
+    <!-- CAPA -->
+    <section class="slide cover" id="capa" data-title="Capa">
+      <div class="slide-glow"></div>
+      <div class="container">
+        <div class="eyebrow reveal">Soma Estratégias</div>
+
+        <h1 class="headline reveal delay-1">
+          Proposta<br>
+          <span class="gold-text">Comercial</span>
+        </h1>
+
+        <h2 class="subheadline reveal delay-2">Programa de Crescimento Comercial</h2>
+
+        <div class="descriptor reveal delay-3">
+          Organização Comercial Digital
+          <span>•</span>
+          Tecnologia em Vendas
+          <span>•</span>
+          Marketing Digital
+        </div>
+
+        <div class="cover-actions reveal delay-4">
+          <button class="btn primary" data-goto="modulo1">Explorar proposta →</button>
+          <button class="btn" id="fullscreenCover">Apresentar em tela cheia</button>
+        </div>
+      </div>
+
+      <div class="brand">
+        <strong>soma</strong>
+        <span>estratégias</span>
+      </div>
+    </section>
+
+    <!-- MÓDULO 1 -->
+    <section class="slide" id="modulo1" data-title="Módulo 1">
+      <div class="slide-glow"></div>
+      <div class="container">
+        <div class="module-head">
+          <div class="module-title-wrap">
+            <div class="eyebrow reveal">Programa de Crescimento Comercial</div>
+            <h2 class="headline reveal delay-1">Módulo <span class="gold-text">1</span></h2>
+            <h3 class="subheadline reveal delay-2">Organização Comercial Digital</h3>
+            <p class="lead reveal delay-3">
+              Estruturação do processo comercial para atender melhor, organizar dados e ampliar presença comercial.
+            </p>
+          </div>
+
+          <aside class="module-side reveal delay-2">
+            <div>
+              <div class="progress-label">Estrutura em 3 módulos</div>
+              <div class="module-steps">
+                <div class="step active">01</div><div class="step-line"></div>
+                <div class="step">02</div><div class="step-line"></div>
+                <div class="step">03</div>
+              </div>
+            </div>
+            <div class="side-words">Planejamento<br>Estratégia<br>Resultados</div>
+          </aside>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3>Sistema de atendimento humanizado</h3>
+            <p>Criação de um sistema com processos de atendimento humanizado.</p>
+            <div class="card-note">Integração dos canais em um único local: Instagram, Facebook, WhatsApp, entre outros.</div>
+          </article>
+
+          <article class="card reveal delay-1">
+            <div class="card-number">02</div>
+            <h3>Treinamento do time</h3>
+            <p>Capacitação da equipe para operar a estrutura comercial com mais consistência, agilidade e padrão de atendimento.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="card-number">03</div>
+            <h3>Organização de filtros e dados</h3>
+            <p>Estruturação de filtros, informações e critérios para facilitar o acompanhamento comercial e a tomada de decisão.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="card-number">04</div>
+            <h3>Preparação para vender nos principais marketplaces</h3>
+            <p>Produtos com preço definido podem ser publicados nos principais marketplaces.</p>
+            <div class="card-note">Produtos sem preço divulgado permanecem no site para buscas e consulta via WhatsApp.</div>
+          </article>
+        </div>
+
+        <div class="footer-strip reveal delay-4">
+          Pessoas&nbsp;&nbsp;|&nbsp;&nbsp;Processos&nbsp;&nbsp;|&nbsp;&nbsp;Resultados reais
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 2 -->
+    <section class="slide" id="modulo2" data-title="Módulo 2">
+      <div class="slide-glow"></div>
+      <div class="container">
+        <div class="module-head">
+          <div class="module-title-wrap">
+            <div class="eyebrow reveal">Programa de Crescimento Comercial</div>
+            <h2 class="headline reveal delay-1">Módulo <span class="gold-text">2</span></h2>
+            <h3 class="subheadline reveal delay-2">Tecnologia em Vendas</h3>
+            <p class="lead reveal delay-3">
+              Ferramentas, mídia e automações para acelerar a geração de oportunidades, escalar campanhas e ampliar a performance comercial.
+            </p>
+          </div>
+
+          <aside class="module-side reveal delay-2">
+            <div>
+              <div class="progress-label">Estrutura em 3 módulos</div>
+              <div class="module-steps">
+                <div class="step">01</div><div class="step-line"></div>
+                <div class="step active">02</div><div class="step-line"></div>
+                <div class="step">03</div>
+              </div>
+            </div>
+            <div class="side-words">Planejamento<br>Estratégia<br>Resultados</div>
+          </aside>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3>WhatsApp API</h3>
+            <p>Estruturação do canal oficial para comunicação comercial, relacionamento e escala de atendimento.</p>
+            <div class="card-note">Disparos<br>Configurações<br>Templates<br>Campanhas<br>Automações</div>
+          </article>
+
+          <article class="card reveal delay-1">
+            <div class="card-number">02</div>
+            <h3>Google Ads</h3>
+            <p>Campanhas para captar demandas com alta intenção de busca e gerar oportunidades mais qualificadas.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="card-number">03</div>
+            <h3>Meta Ads</h3>
+            <p>Estratégias de mídia para ampliar alcance, gerar demanda e alimentar o comercial com novos contatos.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="card-number">04</div>
+            <h3>Marketplace Ads</h3>
+            <p>Promoção de produtos e ofertas dentro de marketplaces para ampliar visibilidade e potencial de vendas.</p>
+          </article>
+        </div>
+
+        <div class="footer-strip reveal delay-4">
+          Mídia&nbsp;&nbsp;|&nbsp;&nbsp;Automação&nbsp;&nbsp;|&nbsp;&nbsp;Escala comercial
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 3 -->
+    <section class="slide" id="modulo3" data-title="Módulo 3">
+      <div class="slide-glow"></div>
+      <div class="container">
+        <div class="module-head">
+          <div class="module-title-wrap">
+            <div class="eyebrow reveal">Programa de Crescimento Comercial</div>
+            <h2 class="headline reveal delay-1">Módulo <span class="gold-text">3</span></h2>
+            <h3 class="subheadline reveal delay-2">Marketing Digital</h3>
+            <p class="lead reveal delay-3">
+              Conteúdo, posicionamento e gestão para fortalecer a presença digital, manter consistência e gerar conexão com o público.
+            </p>
+          </div>
+
+          <aside class="module-side reveal delay-2">
+            <div>
+              <div class="progress-label">Estrutura em 3 módulos</div>
+              <div class="module-steps">
+                <div class="step">01</div><div class="step-line"></div>
+                <div class="step">02</div><div class="step-line"></div>
+                <div class="step active">03</div>
+              </div>
+            </div>
+            <div class="side-words">Planejamento<br>Estratégia<br>Resultados</div>
+          </aside>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3>Criativos para redes sociais</h3>
+            <p>Criação de artes, vídeos e peças visuais para fortalecer a marca, aumentar a percepção de valor e dar mais consistência à comunicação.</p>
+          </article>
+
+          <article class="card reveal delay-1">
+            <div class="card-number">02 <span class="pill">Opcional</span></div>
+            <h3>Captação profissional</h3>
+            <p>Opcional: captura de vídeos e fotos profissionais para elevar a apresentação da marca e gerar materiais com mais qualidade para campanhas e redes sociais.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="card-number">03</div>
+            <h3>Gestão de redes sociais</h3>
+            <p>Acompanhamento da presença digital, com organização das publicações, consistência de linguagem e foco em posicionamento.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="card-number">04</div>
+            <h3>Calendário comercial</h3>
+            <p>Planejamento de campanhas, datas estratégicas e pautas sazonais para manter ritmo de comunicação e aproveitar oportunidades.</p>
+          </article>
+        </div>
+
+        <div class="footer-strip reveal delay-4">
+          Conteúdo&nbsp;&nbsp;|&nbsp;&nbsp;Posicionamento&nbsp;&nbsp;|&nbsp;&nbsp;Consistência
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIMENTO -->
+    <section class="slide investment" id="investimento" data-title="Investimento">
+      <div class="slide-glow"></div>
+      <div class="container">
+        <div class="eyebrow reveal">Programa de Crescimento Comercial</div>
+        <h2 class="headline reveal delay-1">Investimento</h2>
+        <h3 class="subheadline reveal delay-2">Modelo por módulo</h3>
+        <p class="lead reveal delay-3">
+          O Módulo 1 é a base do projeto. Clique nos Módulos 2 e 3 para montar a estrutura que deseja avaliar — o total e a mensagem para o WhatsApp serão atualizados automaticamente.
+        </p>
+
+        <div class="pricing-grid">
+          <article class="price-card selected reveal" data-module="1" data-value="2">
+            <span class="check">✓</span>
+            <div class="card-number">01</div>
+            <h3>Módulo 1</h3>
+            <div class="small">Valor base</div>
+            <div class="price">2 salários mínimos</div>
+            <p class="small">Estrutura inicial do projeto.</p>
+            <div class="pill" style="margin:18px 0 0">Sem desconto</div>
+          </article>
+
+          <article class="price-card reveal delay-1" data-module="2" data-value="1.6">
+            <span class="check">✓</span>
+            <div class="card-number">02</div>
+            <h3>Módulo 2</h3>
+            <div class="small">Valor base: 2 salários mínimos</div>
+            <div class="discount"><span>Ao adicionar:</span><strong>20% OFF</strong></div>
+            <div class="small" style="margin-top:9px">Valor final:</div>
+            <div class="price">1,6 salários mínimos</div>
+          </article>
+
+          <article class="price-card reveal delay-2" data-module="3" data-value="1.4">
+            <span class="check">✓</span>
+            <div class="card-number">03</div>
+            <h3>Módulo 3</h3>
+            <div class="small">Valor base: 2 salários mínimos</div>
+            <div class="discount"><span>Ao adicionar:</span><strong>30% OFF</strong></div>
+            <div class="small" style="margin-top:9px">Valor final:</div>
+            <div class="price">1,4 salários mínimos</div>
+          </article>
+        </div>
+
+        <div class="summary reveal delay-3">
+          <div>
+            <div class="summary-title">Projeto selecionado</div>
+            <div class="summary-total">Total: <strong id="totalValue">2 salários mínimos</strong></div>
+            <div class="summary-economy" id="economyText">Módulo 1 selecionado. Adicione os módulos 2 e/ou 3 para montar sua estrutura.</div>
+          </div>
+
+          <div class="summary-actions">
+            <button class="btn" id="selectAll">Selecionar projeto completo</button>
+            <a class="btn primary" id="whatsappCta" href="https://wa.me/5554996561408" target="_blank" rel="noopener">Falar com Matheus sobre esta seleção →</a>
+          </div>
+        </div>
+
+        <div class="footer-strip reveal delay-4">
+          Clareza&nbsp;&nbsp;|&nbsp;&nbsp;Escala&nbsp;&nbsp;|&nbsp;&nbsp;Economia
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="floating-ui" aria-label="Navegação da apresentação">
+    <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">←</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn" aria-label="Próximo slide">→</button>
+    <button class="fs-btn" id="fullscreenBtn" aria-label="Tela cheia">⛶</button>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const dotsWrap = document.getElementById('dots');
+    let activeIndex = 0;
+
+    // Dots
+    slides.forEach((slide, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot-btn';
+      dot.setAttribute('aria-label', 'Ir para ' + slide.dataset.title);
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = [...document.querySelectorAll('.dot-btn')];
+
+    function goTo(index){
+      activeIndex = Math.max(0, Math.min(slides.length - 1, index));
+      slides[activeIndex].scrollIntoView({behavior:'smooth', block:'start'});
+      updateDots();
+    }
+
+    function updateDots(){
+      dots.forEach((d,i)=>d.classList.toggle('active', i === activeIndex));
+    }
+
+    document.getElementById('prevBtn').addEventListener('click',()=>goTo(activeIndex-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>goTo(activeIndex+1));
+
+    // Atualiza slide ativo conforme scroll
+    const slideObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting && entry.intersectionRatio > .55){
+          activeIndex = slides.indexOf(entry.target);
+          updateDots();
+        }
+      });
+    },{threshold:[.55]});
+
+    slides.forEach(s=>slideObserver.observe(s));
+    updateDots();
+
+    // Reveals
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    },{threshold:.13});
+
+    document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+    // Cards: luz seguindo o mouse + toque no mobile
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('mousemove', e=>{
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX-r.left)/r.width)*100;
+        const y = ((e.clientY-r.top)/r.height)*100;
+        card.style.setProperty('--mx',x+'%');
+        card.style.setProperty('--my',y+'%');
+
+        if(window.matchMedia('(pointer:fine)').matches){
+          const rx = ((e.clientY-r.top)/r.height-.5)*-4;
+          const ry = ((e.clientX-r.left)/r.width-.5)*5;
+          card.style.transform = `translateY(-8px) perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.012)`;
+        }
+      });
+
+      card.addEventListener('mouseleave',()=>{
+        card.style.transform = '';
+      });
+
+      card.addEventListener('click',()=>{
+        if(!window.matchMedia('(pointer:fine)').matches){
+          card.classList.toggle('active');
+        }
+      });
+    });
+
+    // Ir para seção via data-goto
+    document.querySelectorAll('[data-goto]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.getElementById(btn.dataset.goto)?.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Fullscreen
+    async function toggleFullscreen(){
+      if(!document.fullscreenElement){
+        await document.documentElement.requestFullscreen?.();
+      } else {
+        await document.exitFullscreen?.();
+      }
+    }
+    document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
+    document.getElementById('fullscreenCover').addEventListener('click', toggleFullscreen);
+
+    // Teclado
+    document.addEventListener('keydown', e=>{
+      if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){
+        e.preventDefault();
+        goTo(activeIndex+1);
+      }
+      if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){
+        e.preventDefault();
+        goTo(activeIndex-1);
+      }
+      if(e.key.toLowerCase()==='f') toggleFullscreen();
+    });
+
+    // Investimento interativo
+    const priceCards = [...document.querySelectorAll('.price-card')];
+    const totalValue = document.getElementById('totalValue');
+    const economyText = document.getElementById('economyText');
+    const whatsappCta = document.getElementById('whatsappCta');
+
+    const moduleNames = {
+      1: 'Módulo 1 — Organização Comercial Digital',
+      2: 'Módulo 2 — Tecnologia em Vendas',
+      3: 'Módulo 3 — Marketing Digital'
+    };
+
+    // Módulo 1 obrigatório
+    priceCards[0].classList.add('selected');
+
+    function updateInvestment(){
+      const selected = priceCards.filter(c=>c.classList.contains('selected'));
+      const values = selected.map(c=>Number(c.dataset.value));
+      const total = values.reduce((a,b)=>a+b,0);
+      const base = selected.length * 2;
+      const economy = base - total;
+
+      const totalLabel = `${total.toLocaleString('pt-BR',{minimumFractionDigits:total%1?1:0,maximumFractionDigits:1})} salários mínimos`;
+      totalValue.textContent = totalLabel;
+
+      if(economy > 0){
+        economyText.innerHTML = `Economia em relação ao valor-base: <strong>${economy.toLocaleString('pt-BR',{minimumFractionDigits:economy%1?1:0,maximumFractionDigits:1})} salário${economy>1?'s':''} mínimo${economy>1?'s':''}</strong>.`;
+      } else {
+        economyText.textContent = 'Módulo 1 selecionado. Adicione os módulos 2 e/ou 3 para montar sua estrutura.';
+      }
+
+      // Monta a mensagem do WhatsApp conforme a seleção do cliente
+      const selectedModules = selected
+        .map(c => moduleNames[Number(c.dataset.module)])
+        .join('
+• ');
+
+      const message = [
+        'Olá, Matheus! Analisei a proposta comercial da Soma.',
+        '',
+        'Tenho interesse em conversar sobre esta estrutura:',
+        `• ${selectedModules}`,
+        '',
+        `Investimento apresentado: ${totalLabel}.`,
+        '',
+        'Podemos conversar sobre os próximos passos?'
+      ].join('
+');
+
+      whatsappCta.href = `https://wa.me/5554996561408?text=${encodeURIComponent(message)}`;
+    }
+
+    priceCards.forEach((card,i)=>{
+      card.addEventListener('click',()=>{
+        if(i===0) return;
+        card.classList.toggle('selected');
+        updateInvestment();
+      });
+    });
+
+    document.getElementById('selectAll').addEventListener('click',()=>{
+      priceCards.forEach(c=>c.classList.add('selected'));
+      updateInvestment();
+    });
+
+    updateInvestment();
+  </script>
+</body>
+</html>
